@@ -1,5 +1,380 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
-@theme{
-  
+@theme {
+  /* ─────────────────────────────────────
+     BRAND — Laranja (cor de destaque)
+  ───────────────────────────────────── */
+  --color-brand-50: #fff8ed;
+  --color-brand-100: #ffefd3;
+  --color-brand-200: #ffdba6;
+  --color-brand-300: #ffc06d;
+  --color-brand-400: #ff9a32; /* destaques leves, hover states */
+  --color-brand-500: #f97c0a; /* cor principal — logo, ▶, links ativos */
+  --color-brand-600: #ea6100; /* botões primários, bordas de ênfase */
+  --color-brand-700: #c24802; /* hover dos botões primários */
+  --color-brand-800: #9a3908;
+  --color-brand-900: #7c300b;
+
+  /* ─────────────────────────────────────
+     SURFACE — Fundos escuros (camadas)
+  ───────────────────────────────────── */
+  --color-surface-950: #020617; /* fundo raiz da página */
+  --color-surface-900: #0a1020; /* seções alternadas, hero */
+  --color-surface-800: #0f172a; /* cards, navbar com scroll */
+  --color-surface-700: #1e293b; /* bordas de cards, divisores */
+  --color-surface-600: #334155; /* bordas de inputs, tags */
+
+  /* ─────────────────────────────────────
+     TEXTO — Escala de cinza (hierarquia)
+  ───────────────────────────────────── */
+  --color-content-100: #f1f5f9; /* títulos principais, h1 */
+  --color-content-200: #e2e8f0; /* títulos secundários */
+  --color-content-300: #cbd5e1; /* subtítulos, textos de destaque */
+  --color-content-400: #94a3b8; /* parágrafos, descrições */
+  --color-content-500: #64748b; /* placeholders, labels discretos */
+  --color-content-600: #475569; /* texto de inputs, datas na timeline */
+
+  /* ─────────────────────────────────────
+     STATUS — Semântico (badges)
+  ───────────────────────────────────── */
+  --color-status-green: #34d399; /* disponível, projetos concluídos */
+  --color-status-yellow: #fbbf24; /* em desenvolvimento */
+  --color-status-blue: #60a5fa; /* labels de seção, tags informativas */
+  --color-status-purple: #a259ff; /* UX/UI, Figma */
+
+  /* ─────────────────────────────────────
+     TECNOLOGIAS — Cores dos ícones
+  ───────────────────────────────────── */
+  --color-tech-js: #f7df1e; /* JavaScript */
+  --color-tech-html: #e34c26; /* HTML5 */
+  --color-tech-css: #264de4; /* CSS3 */
+  --color-tech-vue: #42b883; /* Vue.js */
+  --color-tech-node: #68a063; /* Node.js */
+  --color-tech-ts: #3178c6; /* TypeScript */
+  --color-tech-react: #61dafb; /* React Native */
+  --color-tech-firebase: #ffca28; /* Firebase */
+  --color-tech-python: #3776ab; /* Python */
+
+  /* ─────────────────────────────────────
+     TIPOGRAFIA
+  ───────────────────────────────────── */
+  --font-heading: 'Syne', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* ─────────────────────────────────────
+     GRADIENTES
+  ───────────────────────────────────── */
+  --gradient-brand: linear-gradient(100deg, #ff9a32 0%, #ea6100 100%);
+  --gradient-frame: linear-gradient(180deg, #ea6100 0%, #f97c0a 100%);
+  --gradient-fade-b: linear-gradient(to bottom, transparent, #020617);
+
+  /* ─────────────────────────────────────
+     SOMBRAS
+  ───────────────────────────────────── */
+  --shadow-brand-sm: 0 4px 14px rgba(234, 97, 0, 0.25);
+  --shadow-brand-md: 0 8px 24px rgba(234, 97, 0, 0.3);
+  --shadow-brand-lg: 0 16px 48px rgba(234, 97, 0, 0.2);
+  --shadow-card: 0 4px 32px rgba(0, 0, 0, 0.3);
+
+  /* ─────────────────────────────────────
+     BORDER RADIUS
+  ───────────────────────────────────── */
+  --radius-card: 14px;
+  --radius-pill: 20px;
+  --radius-btn: 9px;
+  --radius-input: 8px;
+  --radius-badge: 10px;
+
+  /* ─────────────────────────────────────
+     ANIMAÇÕES
+  ───────────────────────────────────── */
+  --animate-fade-up: fadeUp 0.6s ease forwards;
+  --animate-fade-in: fadeIn 0.8s ease forwards;
+  --animate-float: float 4s ease-in-out infinite;
+  --animate-pulse-dot: pulse 2s ease-in-out infinite;
+  --animate-blink: blink 0.8s step-end infinite;
+  --animate-bounce-y: bounceY 2s ease-in-out infinite;
+
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(24px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-12px);
+    }
+  }
+  @keyframes pulse {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.3;
+    }
+  }
+  @keyframes blink {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
+  }
+  @keyframes bounceY {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(8px);
+    }
+  }
+}
+
+/* ─────────────────────────────────────
+   UTILITÁRIOS CUSTOMIZADOS
+   Usados como classes no template
+───────────────────────────────────── */
+@layer utilities {
+  /* Dot pattern do hero */
+  .dot-pattern {
+    background-image: radial-gradient(circle, var(--color-surface-700) 1px, transparent 1px);
+    background-size: 28px 28px;
+  }
+
+  /* Glow dos botões brand */
+  .glow-brand-sm {
+    box-shadow: var(--shadow-brand-sm);
+  }
+  .glow-brand-md {
+    box-shadow: var(--shadow-brand-md);
+  }
+  .glow-brand-lg {
+    box-shadow: var(--shadow-brand-lg);
+  }
+
+  /* Texto com gradiente laranja */
+  .text-gradient-brand {
+    background: var(--gradient-brand);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Scroll reveal base */
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition:
+      opacity 0.65s ease,
+      transform 0.65s ease;
+  }
+  .reveal.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .reveal-d1 {
+    transition-delay: 100ms;
+  }
+  .reveal-d2 {
+    transition-delay: 200ms;
+  }
+  .reveal-d3 {
+    transition-delay: 300ms;
+  }
+  .reveal-d4 {
+    transition-delay: 400ms;
+  }
+}
+
+/* ─────────────────────────────────────
+   COMPONENTES REUTILIZÁVEIS
+───────────────────────────────────── */
+@layer components {
+  /* Container padrão */
+  /* .container-portfolio {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding-block: calc(var(--spacing) * 16);
+  } */
+  .navBar {
+    transition: 0.3s;
+    padding: 0.5rem 1rem;
+  }
+  .navBar a:hover {
+    color: var(--color-content-100);
+  }
+  .navBar:hover {
+    background: var(--color-surface-700);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    align-items: center;
+    transform: translateY(-2px);
+  }
+  .navBar:active {
+    background: color-mix(in srgb, var(--color-brand-600) 15%, transparent);
+  }
+  .navBar:active a {
+    color: var(--color-brand-500);
+  }
+
+  /* Rótulo de seção (// sobre mim) */
+  .sec-label {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--color-brand-500);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  /* Cards */
+  .card {
+    background: var(--color-surface-800);
+    border: 1px solid var(--color-surface-700);
+    border-radius: var(--radius-card);
+    transition:
+      border-color 0.25s,
+      transform 0.25s,
+      box-shadow 0.25s;
+  }
+  .card:hover {
+    border-color: rgba(249, 124, 10, 0.25);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-card);
+  }
+
+  /* Tags de tecnologia (pill) */
+  .tag {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--color-content-500);
+    background: var(--color-surface-800);
+    border: 1px solid var(--color-surface-700);
+    padding: 3px 12px;
+    border-radius: var(--radius-pill);
+    transition:
+      border-color 0.2s,
+      color 0.2s;
+  }
+  .tag:hover {
+    border-color: rgba(249, 124, 10, 0.35);
+    color: var(--color-brand-400);
+  }
+
+  /* Tag com fundo brand */
+  .tag-brand {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--color-brand-400);
+    background: rgba(249, 124, 10, 0.08);
+    border: 1px solid rgba(249, 124, 10, 0.2);
+    padding: 3px 12px;
+    border-radius: var(--radius-pill);
+  }
+
+  /* Botão primário */
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 11px 24px;
+    background: var(--color-brand-600);
+    color: #fff;
+    border-radius: var(--radius-btn);
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition:
+      background 0.2s,
+      transform 0.2s,
+      box-shadow 0.2s;
+  }
+  .btn-primary:hover {
+    background: var(--color-brand-500);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-brand-md);
+  }
+
+  /* Botão outline */
+  .btn-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 24px;
+    background: transparent;
+    border: 1px solid var(--color-surface-600);
+    color: var(--color-content-400);
+    border-radius: var(--radius-btn);
+    font-size: 14px;
+    cursor: pointer;
+    transition:
+      border-color 0.2s,
+      color 0.2s,
+      transform 0.2s;
+  }
+  .btn-outline:hover {
+    border-color: var(--color-brand-500);
+    color: var(--color-content-100);
+    transform: translateY(-2px);
+  }
+}
+
+/* ─────────────────────────────────────
+   RESET / BASE
+───────────────────────────────────── */
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: var(--color-surface-950);
+    color: var(--color-content-400);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection {
+    background: var(--color-brand-600);
+    color: #fff;
+  }
+
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--color-surface-900);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-brand-600);
+    border-radius: 4px;
+  }
 }
